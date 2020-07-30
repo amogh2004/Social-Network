@@ -1,0 +1,39 @@
+.header {
+    color: #222831;
+    background-color: #32e0c4;
+    display: inline-block;
+    width: 100%;
+    height: 90px;
+}
+
+.menua {
+    list-style: none;
+    float: left;
+    padding: 40px 0px 0px 0px;
+    font-family: fantasy;
+    font-size: 35px;
+    cursor: pointer;
+    outline: none;
+}
+
+.menu {
+    list-style: none;
+    float: right;
+    padding: 30px 20px 0px 30px;
+    font-family: monospace;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.button {
+    color: #eeeeee;
+    height: 40px;
+    width: 230px;
+    font-size: 20px;
+    font-family: monospace;
+    background-color: #222831;
+    border-radius: 30px;
+    cursor: pointer;
+    outline: none;
+}
