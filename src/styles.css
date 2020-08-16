@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
-
-.body {
-    background-color: #393e46;
+body {
+    padding: 0px;
     margin: 0px;
-    padding: px;
+    background-color: #0E0F22;
+    color: white;
+
 }

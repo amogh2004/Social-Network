@@ -1,15 +1,18 @@
 .card {
+
     color: black;
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
+    text-align: center;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .center {
     text-align: center;
 }
 
-.uploadimage {
-    margin-top: 70px;
-    margin-left: 80px;
+.upload-image {
+    margin-top: 60px;
+    margin-left: 50px;
 }

@@ -9,7 +9,7 @@ export class ReadpostComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }
