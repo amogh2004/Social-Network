@@ -1,44 +1,41 @@
-module.exports=(sequelize,Sequelize)=>{
-    const Post = sequelize.define('post', {
-        post_id:{
-            type:Sequelize.INTEGER,
-            autoIncrement: true,
-            primaryKey: true,
-            allowNull: false,
-            required:true
+module.exports = (sequelize, Sequelize) => {
+    const User = sequelize.define('user', {
+        // attributes
+        name: {
+          type: Sequelize.STRING(50),
+          allowNull: false,
+          required: true
         },
-        loc_name:{
-            type: Sequelize.STRING(100),
-            allowNull: false,
-            required:true
+        email: {
+          type: Sequelize.STRING(100),
+          primaryKey: true
         },
-    
-        loc_desc:{
-            type: Sequelize.STRING, 
-            allowNull: false,
-            required: true
+        password: {
+          type: Sequelize.STRING,
+          allowNull: false,
+          required: true
         },
-        loc_img: {
-            type: Sequelize.BLOB, 
-            allowNull: true,
-            required: false
+        insta_id: {
+          type: Sequelize.STRING,
+          allowNull: false,
+          required: true
         },
-        votes:{
-            type: Sequelize.STRING, 
-            allowNull: true,
-            required: false
+        country: {
+          type: Sequelize.STRING,
+          allowNull: false,
+          required: true
         },
-    
-    
-    
-    });
-    
-
-
- return Post;
-
+        bio: {
+          type: Sequelize.STRING,
+          allowNull: false,
+          required: true
+        },
+        user_img:{
+          type: Sequelize.BLOB('long'),
+          required: false
+        }
+      }, {
+        // options
+      });
+      return User;
 }
-
-
-
-

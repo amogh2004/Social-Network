@@ -1,11 +1,9 @@
-module.exports=(sequelize,Sequelize)=>{
+module.exports=(sequelize, Sequelize)=>{
     const Post = sequelize.define('post', {
         post_id:{
-            type:Sequelize.INTEGER,
+            type: Sequelize.INTEGER,
             autoIncrement: true,
-            primaryKey: true,
-            allowNull: false,
-            required:true
+            primaryKey: true
         },
         loc_name:{
             type: Sequelize.STRING(100),
@@ -14,28 +12,25 @@ module.exports=(sequelize,Sequelize)=>{
         },
     
         loc_desc:{
-            type: Sequelize.STRING, 
+            type: Sequelize.STRING,
             allowNull: false,
-            required: true
+            required:true
         },
+    
         loc_img: {
-            type: Sequelize.BLOB, 
-            allowNull: true,
-            required: false
+            type: Sequelize.BLOB('long'),
+            required:false
         },
-        votes:{
-            type: Sequelize.STRING, 
-            allowNull: true,
-            required: false
-        },
-    
-    
-    
+
+        email:{
+           type:Sequelize.STRING(100),
+           references:{
+            model:'users',
+            key: 'email'
+           }
+        }
+    }, {
+        // options
     });
-    
-
-
- return Post;
-
+    return Post;
 }
-

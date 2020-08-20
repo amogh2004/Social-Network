@@ -1,0 +1,15 @@
+.card{
+    width: 50%;
+    margin: 2% auto;
+}
+.card-body{
+    color: #000000;
+    padding: 3%;
+}
+.card-header{
+    background-color: #2F4F4F;
+    text-align: center;
+}
+.center{
+    text-align: center;
+}
