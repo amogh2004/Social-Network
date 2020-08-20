@@ -1,19 +1,27 @@
-.menu{
-    list-style-type: none;
-    float: left;
-    padding: 1.3%;
-    cursor: pointer;
-}
-.right{
-    float: right;
-}
-.footer{
-    width: 100%;
-    color: #FFFFFF;
+.footer {
+    color: #222831;
+    background-color: #32e0c4;
     display: inline-block;
-    background-color: #F31C5E;
-    font-size: 114%;
-    position: fixed;
-    bottom: 0%;
-    margin: 0%;
+    width: 100%;
+    height: 35px;
+}
+
+.menu-left {
+    float: left;
+    font-family: monospace;
+    font-size: 25px;
+    cursor: pointer;
+    outline: none;
+    list-style: none;
+    color: black;
+}
+
+.menu-right {
+    float: right;
+    font-family: monospace;
+    font-size: 25px;
+    cursor: pointer;
+    outline: none;
+    list-style: none;
+    padding-right: 17px;
 }

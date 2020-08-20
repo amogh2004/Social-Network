@@ -85,7 +85,7 @@ router.get('/',(req,res)=>{
         console.log(err);
         res.send({
             status: 500,
-            data:{message: 'Some Error while sending the post data'},
+            data:{message: 'Error while sending the post data. Try Again!'},
             err:err
         })
     })
