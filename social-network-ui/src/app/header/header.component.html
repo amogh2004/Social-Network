@@ -1,11 +1,12 @@
-<header>
-    <div class="menua">Social Network</div>
-    <nav>
-        <a class="menu" *ngIf="isSignIn"><button class="button" routerLink="addpost">Post your Story </button></a>
-        <a class="menu" *ngIf="isSignIn" routerLink="signin">Log Out</a>
-        <a class="menu" *ngIf="!isSignIn" routerLink="signup">Sign Up</a>
-        <a class="menu" *ngIf="!isSignIn" routerLink="signin">Sign In</a>
-        <a class="menu" *ngIf="isSignIn">{{email}}</a>
-        <a class="menu" *ngIf="isSignIn" routerLink="home">Home</a>
-    </nav>
-</header>
+<div class="header">
+    <ul>
+        <li class="menu left " >Social Network</li>
+        <li class="menu" *ngIf="isSignIn"><button class="post-button" routerLink="addpost">Post your story</button></li>
+        <li class="menu" routerLink="signin" *ngIf="isSignIn">Log Out</li>
+        <li  class="menu" routerLink="signup" *ngIf="!isSignIn">Sign Up</li>
+        <li  class="menu" routerLink="signin" *ngIf="!isSignIn">Sign In</li>
+        <li class="menu" *ngIf="isSignIn">{{email}}</li>
+        <li class="menu"  routerLink="home">Home</li>
+        
+    </ul>
+</div>

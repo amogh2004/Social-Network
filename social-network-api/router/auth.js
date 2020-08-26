@@ -1,90 +1,95 @@
 const express = require('express');
-const db = require('../config/db');
-const UserModel = db.socialNWDB.user;
+const db =require('../config/db');
+const UserModel = db.socialNWDB;
 const router = express.Router();
-
-
-router.get('/',(req,res) => {
-    res.send("auth route connection established")
+    router.get('/',(req,res)=>{
+    res.send('auth route connection established')
 })
 
-//@Method: POST
-//Desc: This is api will add the sign up details to database
-//API Name: http://localhost:3000/api/auth/signup
+//method:post
+//desc:to add users
+//api name:http://localhost:3000/api/auth/signup
 
 router.post('/signup',(req,res)=>{
-    //collect data from request
+    //1. collect data from req
     let reqname = req.body.name;
-    let reqemail = req.body.email;
+    let reqemail= req.body.email;
     let reqpassword = req.body.password;
-    let reqinsta_name = req.body.insta_id;
-    let reqcountry = req.body.country;
-    let reqbio = req.body.bio;
-    let req_user_img;
-    if(req.body.user_img){
-        req_user_img = req.body.user_img
+    let reqinsta_name=req.body.insta_name;
+    let reqcountry=req.body.country;
+    let reqbio=req.body.bio;
+    let requser_image;
+    if(req.body.user_image)
+    {
+        requser_image = req.body.user_image;
     }
 
-    //store req data in user table
-    UserModel.create({
-        name: reqname,
-        email: reqemail,
-        password: reqpassword,
-        insta_id: reqinsta_name,
-        country: reqcountry,
-        bio: reqbio,
-        user_img: req_user_img
+    //2. pass or store data to usertable
+
+    //if user's email is present in db then do not store the data and we should send a response 
+    //that user already exists
+    UserModel.user.create({
+        name : reqname,
+        email : reqemail,
+        passsword : reqpassword,
+        insta_id : reqinsta_name,
+        country : reqcountry,
+        bio : reqbio,
+        user_image : requser_image
     })
-    //feedback
+    //3. if data is added inform
     .then(()=>{
         res.send({
-            message: "User added successfully",
-            status: 200
+            message: "user added successfully",
+            status : 200,
+            email : reqemail
         })
     })
-    .catch((err)=>{
+    //4. if data not added inform
+    .catch(()=>{
         res.send({
-            message: "Unable to add user to the server",
-            status: 500,
-            err:err
+            message : "user not added in server",
+            status : 500
         })
     })
 })
 
-//@Method: POST
-//Desc: This is api will check credentials and respond to ui
-//API Name: http://localhost:3000/api/auth/signin
+
+//method : post
+//desc : to check credentials and respond to UI
+//apiname : http://localhost:3000/api/auth/signin
 
 router.post('/signin',(req,res)=>{
+
     const req_email = req.body.email;
     const req_password = req.body.password;
 
-    UserModel.findOne({where: {
-        email: req_email,
-        password: req_password
+    UserModel.user.findOne({where: {
+        email : req_email,
+        passsword : req_password
     },raw:true})
     .then((usersdata)=>{
-        if (usersdata){
+        if(usersdata)
+        {
             res.send({
-                message: "user signin successful",
-                status: 200,
-                email: req_email
-            })
-        }
-        else{
+                message: "user signin successfull",
+                status : 200,
+                email : req_email
+
+            }) 
+        }else{
             res.send({
-                message: "Invalid email-id or password!",
-                status: 404
+                message: "Invalid Email Id or Password please Signup",
+                status : 404
             })
         }
     })
     .catch((err)=>{
         res.send({
-            message: "User unable to signin",
-            status: 500,
-            err:err
+            message : "user not able to sign in",
+            status : 500
         })
     })
+      
 })
-
 module.exports = router;

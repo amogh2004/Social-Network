@@ -1,32 +1,37 @@
 const express = require('express');
-const UserModel = require('../config/db').socialNWDB.user;
+const db = require('../config/db');
+const UserModel = db.socialNWDB;
 const router = express.Router();
+// router.get('/',(req,res)=>{
+//     res.send('user route connection established')
+// })
 
-//@Method: GET
-//Desc: Provide all usrs bio
-//API url: http://localhost:3000/api/user/
-router.get('/',(req,res) => {
-    UserModel.findAll({attributes:['name','bio','user_img']})
+//method: get
+//desc: to get users bio
+//api name : http://localhost:3000/api/user/
+
+router.get('/',(req,res)=>{
+    UserModel.user.findAll({
+        attributes: ['name', 'bio','user_image']
+      })
     .then((usersdata)=>{
-        /*usersdata.forEach(element => {
-            element.user_img = element.user_img.toString();
-        });*/
-        usersdata.forEach(element => {
-            if(element.user_img){
-                element.user_img = element.user_img.toString();
-        }});
+        usersdata.forEach(element=>{
+            if(element.user_image){
+                element.user_image=element.user_image.toString();
+        }})
         res.send({
-            status: 200,
-            data:usersdata
+            data : usersdata,
+            status : 200
         })
     })
     .catch((err)=>{
         res.send({
-            status:500,
-            data:{message: 'Some Error while sending the user data'},
+            data : {message:'data not found'},
+            status : 500,
             err:err
         })
     })
 })
+
 
 module.exports = router;

@@ -1,47 +1,54 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const express=require('express');
+const bodyParser = require('body-parser')
 const cors = require('cors');
 const app = express();
 
-app.use(cors());
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: true}))
-
-//parse application/json
+app.use(cors())
+//parse application/xx
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
 app.use(bodyParser.json())
-
-const port = 3000
-
-//bringing routers
+const port = 3000;
+// bringing all routers
 const user = require('./router/user');
 const post = require('./router/post');
 const auth = require('./router/auth');
 const vote = require('./router/vote');
-
+//db connection details
 const DB = require('./config/db');
-
-DB.socialNWDB.sequelizeDB.authenticate()
+DB.socialNWDB.authenticate()
 .then(() => {
-    console.log('Connection has been established successfully.');
-    DB.socialNWDB.sequelizeDB.sync({})
-    .then(() => {
-        console.log('tables creation successful');
-      })
-      .catch(err => {
-        console.error('tables creation failed:', err);
-    });
+  console.log('Connection has been established successfully.');
+  DB.socialNWDB.sync({})
+  .then(() => {
+      console.log('table creation successful')
+
+    })
+  .catch(()=>{
+      console.log('table creation unsuccessful')
   })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
+})
+
+.catch(err => {
+  console.error('Unable to connect to the database:', err);
 });
 
-//add the routes to server(apis)
-app.use('/api/user',user);
-app.use('/api/post',post);
-app.use('/api/auth',auth);
-app.use('/api/vote',vote);
+//add routes to the app server
 
-//app server
+//user api
+app.use('/api/user/',user);
+
+//post api
+app.use('/api/post/',post);
+
+//auth api
+app.use('/api/auth/',auth);
+
+//vote api
+app.use('/api/vote/',vote);
+
+//application server
 app.listen(port, () => {
-    console.log('server running in 3000 port')
-})
+  console.log(`Example app listening at http://localhost:${port}`)
+})  

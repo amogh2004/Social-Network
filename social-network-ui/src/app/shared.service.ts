@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
-
+import { Observable, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
+  isSignIn:boolean=false;
+  signInEmail : string;
+  allPost : any;
+  allUser:any;
 
-  isSignIn: boolean = false;
-  signInEmail: String;
-  allPost: any;
-
+  
   private subject = new Subject<any>();
+  
+  setAuthUser(email:string){
 
-  setAuthUser(email: string){
-    this.subject.next({auth: email});
+    this.subject.next({auth:email})
+
   }
 
   getAuthUser(){
@@ -23,6 +25,6 @@ export class SharedService {
   clearAuthUser(){
     this.subject.next();
   }
-  
   constructor() { }
+  
 }
