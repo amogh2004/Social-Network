@@ -1,33 +1,29 @@
 <div class="card">
     <div class="card-header center">
-        Add your Awsome Post
+        Add your Awesome Post
     </div>
-
     <div class="card-body">
-        <form #postForm="ngForm" (ngSubmit)="submitPost(postForm)" enctype="multipart/form-data">
-            <div class="form-group row">
-                <label for="location"  class="col-sm-2 col-form-label">Location Name</label>
-                <div class="col-sm-10">
-                    <input name="locName" ngModel #locName="ngModel" type="email" class="form-control" id="inputemail">
+        <form #postForm="ngForm"  (ngSubmit)="submitPost(postForm)" enctype="multipart/form-data">
+            <label for="inputLocation" class="">Location Name</label>
+                <div>
+                    <input type="text" name="locName" ngModel #locName="ngModel" class="form-control" id="inputLocation">
                 </div>
+                        
+            <label for="inputDescription" class="">Description</label>
+                <div>
+                    <input type="text" name="locDesc" ngModel #locDesc="ngModel" class="form-control" id="inputDescription" >
+                </div>
+            <div class="c">
+                <p>Add Your Awesome Photos</p>
+            </div>
+            <div> 
+                <input (change)="updateImage($event)" type="file" name="locFile" ngModel #locFile="ngModel"  id="upload-image-id" class="margin" >
             </div>
 
-            <div class="form-group row">
-                <label for="description"  class="col-sm-2 col-form-label">Description</label>
-                <div class="col-sm-10">
-                    <textarea name="locDesc" ngModel #locDesc="ngModel" class="form-control" id="description" rows="5"></textarea>
-                </div>
+            <div class="center m">
+                <button type="submit" class="btn btn-success">Submit post</button>
             </div>
-
-            <div><small id="photoHelp" class="form-text text-muted center">Add Your Awsome Photos</small></div>
-            
-            <div class="form-group row">
-                <input (change)="updateImage($event)" ngModel #locFile="ngModel" name="locFile" class="btn" type="file" id="upload-image-id">
-            </div>
-            <div class="highlight center">
-                <button type="submit" class="btn btn-success center">Submit Post</button>
-            </div>
-            <div *ngIf="postErr" class="error">{{postErr}}</div>
-        </form>
+            <div *ngIf="postError"  class="fontt">{{postError}}</div>
+        </form>              
     </div>
 </div>

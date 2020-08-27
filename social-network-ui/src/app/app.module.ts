@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -11,9 +11,8 @@ import { SignupComponent } from './home/signup/signup.component';
 import { AddpostComponent } from './home/addpost/addpost.component';
 import { ReadpostComponent } from './home/readpost/readpost.component';
 import { UserdetailsComponent } from './home/userdetails/userdetails.component';
-import { HttpClientModule } from '@angular/common/http';
-
-
+import {HttpClientModule} from '@angular/common/http';
+import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     SignupComponent,
     AddpostComponent,
     ReadpostComponent,
-    UserdetailsComponent
+    UserdetailsComponent,
+    NotFoundComponentComponent
   ],
   imports: [
     BrowserModule,

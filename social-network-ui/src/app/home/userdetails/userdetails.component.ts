@@ -1,32 +1,40 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { SharedService } from '../../shared.service';
-import { HttpClient } from '@angular/common/http';
-
+import {SharedService} from '../../shared.service';
 @Component({
   selector: 'app-userdetails',
   templateUrl: './userdetails.component.html',
   styleUrls: ['./userdetails.component.css']
 })
-export class UserdetailsComponent implements OnInit, OnChanges {
-
+export class UserdetailsComponent implements OnInit,OnChanges {
   @Input()
   readUserInput
-  userDetailArr = []
-  constructor(private _shared: SharedService, private _http: HttpClient) { }
+  userArr=[]
+
+  constructor(private shared : SharedService) { }
+  
 
   ngOnInit() {
-    /*this.userDetailArr = [
-      {id:'1',
-      detailimag:'../../../assets/person.svg',
-      detailName:'Ben',
-      detailBio:'This is my Bio'
-      }
-    ]*/
-  }
-  
-  ngOnChanges(){
-    this.userDetailArr = this.readUserInput;
-    console.log("userdetail comp", this.userDetailArr);
-  }
+    // this.userArr = [
+    //   {
+    //     id:'1',
+    //     image:'../../../assets/person.svg',
+    //     userName:'Sid',
+    //     userBio:'This is my bio' 
+    //   },
 
+    //   {
+    //     id:'1',
+    //     image:'../../../assets/person.svg',
+    //     userName:'Sam',
+    //     userBio:'This is my bio' 
+    //   },
+
+    // ]
+  }
+  ngOnChanges()
+  {
+    this.userArr = this.readUserInput;
+    console.log("user details component");
+    console.log( this.userArr );
+  }
 }

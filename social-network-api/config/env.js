@@ -1,7 +1,7 @@
 const local={
-    database: 'socialnetwork',
-    username: 'root',
-    password: 'root',
+    database:'intershipsocialnetwork',
+    username:'root',
+    password:'root',
     host: 'localhost',
     dialect: 'mysql'
 }

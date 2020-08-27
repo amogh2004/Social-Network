@@ -1,16 +1,18 @@
-<div class="details">
-    <div class="heading">Recent New Users</div>
-    <div class="card" *ngFor="let user of userDetailArr">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-2">
-                    <img src="{{user.user_img}}" alt="" width="100%">
+<div>
+    <div class="heading">Recent new users</div>
+  
+     <div class="card"  *ngFor="let ob of userArr">
+       <div class="card-body">
+          <div class="row">
+                <div class="col-md-3">
+                  <img src="../../../assets/person.svg" [src]="ob.user_image" alt="" width="70px">
                 </div>
+              
                 <div class="col-md-9">
-                    <div class="username">{{user.name}}</div>
-                    <div class="userbio">{{user.bio}}</div>
+                  <div class="username">{{ob.name}}</div>
+                  <div class="userbio">{{ob.bio}}</div>
                 </div>
-            </div>
+          </div>
         </div>
-    </div>
+      </div>
 </div>

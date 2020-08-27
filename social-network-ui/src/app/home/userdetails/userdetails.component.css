@@ -1,33 +1,21 @@
 .card{
-    color: #000000;
-    width: 65%;
-    cursor: pointer;
-    background-color: #EDEDED;
-    display: block;
-    margin-bottom: 1%;
+    color: black;
+    width:60%;
+    margin-top: 10px;
+    margin-left: 94px;
 }
 .username{
+    font-size: 20px;
     font-weight: bold;
-    font-size: 125%;
 }
+
 .userbio{
+    font-size: 16px;
     font-weight: 500;
-    font-size: 100%;
 }
-.details{
-    margin: 2% 10%;
-}
+
 .heading{
+    margin-left: 94px;
     font-size: 22px;
-    color: #636363;
     font-weight: bold;
-}
-.col-md-2{
-    background: url('../../../assets/person.svg') no-repeat;
-    background-size: contain;
-    padding: 0;
-}
-img{
-    background: #EDEDED;
-    width: 100%;
 }
