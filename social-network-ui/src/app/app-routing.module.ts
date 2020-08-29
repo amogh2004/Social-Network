@@ -12,7 +12,10 @@ const routes: Routes = [
 {path:'signin',component:SigninComponent},
 {path:'signup',component:SignupComponent},
 {path:'addpost',component:AddpostComponent},
+<<<<<<< HEAD
 {path:'userinfo',component:UserinfoComponent}
+=======
+>>>>>>> 4ac50134f40aa759401b9788878a11e3ec12e926
 ];
 
 @NgModule({

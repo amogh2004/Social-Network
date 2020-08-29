@@ -12,7 +12,11 @@ import { AddpostComponent } from './home/addpost/addpost.component';
 import { ReadpostComponent } from './home/readpost/readpost.component';
 import { UserdetailsComponent } from './home/userdetails/userdetails.component';
 import {HttpClientModule} from '@angular/common/http';
+<<<<<<< HEAD
 import { UserinfoComponent } from './home/userinfo/userinfo.component';
+=======
+import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
+>>>>>>> 4ac50134f40aa759401b9788878a11e3ec12e926
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,11 @@ import { UserinfoComponent } from './home/userinfo/userinfo.component';
     AddpostComponent,
     ReadpostComponent,
     UserdetailsComponent,
+<<<<<<< HEAD
     UserinfoComponent
+=======
+    NotFoundComponentComponent
+>>>>>>> 4ac50134f40aa759401b9788878a11e3ec12e926
   ],
   imports: [
     BrowserModule,
