@@ -21,3 +21,16 @@
 .post-button{
     cursor: pointer;
 }
+.logo-image{
+    width: 71px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+}
+.pp{
+    padding-left: 1px;
+}
+.pr{
+    padding-right: 9px;
+}

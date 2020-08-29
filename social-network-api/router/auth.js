@@ -2,9 +2,9 @@ const express = require('express');
 const db =require('../config/db');
 const UserModel = db.socialNWDB;
 const router = express.Router();
-    router.get('/',(req,res)=>{
-    res.send('auth route connection established')
-})
+//     router.get('/',(req,res)=>{
+//     res.send('auth route connection established')
+// })
 
 //method:post
 //desc:to add users
@@ -42,7 +42,8 @@ router.post('/signup',(req,res)=>{
         res.send({
             message: "user added successfully",
             status : 200,
-            email : reqemail
+            email : reqemail,
+            user_image : requser_image
         })
     })
     //4. if data not added inform
@@ -91,5 +92,33 @@ router.post('/signin',(req,res)=>{
         })
     })
       
+})
+
+
+
+//method: get
+//desc: to get users info
+//api name : http://localhost:3000/api/auth/
+
+router.get('/',(req,res)=>{
+    const req_email = req.query.email;
+    UserModel.user.findAll({ where: { email:req_email },raw:true })
+    .then((usersdata)=>{
+        usersdata.forEach(element=>{
+            if(element.user_image){
+                element.user_image=element.user_image.toString();
+        }})
+        res.send({
+            data : usersdata,
+            status : 200
+        })
+    })
+    .catch((err)=>{
+        res.send({
+            data : {message:'data not found'},
+            status : 500,
+            err:err
+        })
+    })
 })
 module.exports = router;

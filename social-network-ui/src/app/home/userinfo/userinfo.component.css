@@ -1,20 +1,20 @@
 .card{
     color: black;
-    width:40%;
+    width:60%;
     margin:0 auto;
     font-weight: bold;
-    margin-top: 100px;
+    margin-top: 25px;
 }
 .center{
     text-align: center;
 }
+.upload-image{
+    margin-top: 70px;
+    margin-left:85px;
+}
 .m{
-    margin-left: 246px;
+    margin-left: 410px;
 }
 .c{
     background-color:lightgrey;
-}
-.fontt{
-    color: red;
-    margin-left:130px;
 }
