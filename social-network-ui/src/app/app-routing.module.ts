@@ -5,6 +5,8 @@ import { SigninComponent } from './home/signin/signin.component';
 import { SignupComponent } from './home/signup/signup.component';
 import { AddpostComponent } from './home/addpost/addpost.component';
 import { UserinfoComponent} from './home/userinfo/userinfo.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { AuthGuard } from './guards/auth-guard.service';
 
 const routes: Routes = [
 {path:'',redirectTo:'home',pathMatch:'full'},
@@ -12,14 +14,12 @@ const routes: Routes = [
 {path:'signin',component:SigninComponent},
 {path:'signup',component:SignupComponent},
 {path:'addpost',component:AddpostComponent},
-<<<<<<< HEAD
 {path:'userinfo',component:UserinfoComponent}
-=======
->>>>>>> 4ac50134f40aa759401b9788878a11e3ec12e926
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), BrowserModule],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+
+export class AppRoutingModule { canActivate: [AuthGuard]}
