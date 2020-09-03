@@ -12,6 +12,12 @@ import { AddpostComponent } from './home/addpost/addpost.component';
 import { ReadpostComponent } from './home/readpost/readpost.component';
 import { UserdetailsComponent } from './home/userdetails/userdetails.component';
 import {HttpClientModule} from '@angular/common/http';
+<<<<<<< HEAD
+=======
+import { RouterModule } from '@angular/router';
+import { AuthGuard } from "./guards/auth-guard.service";
+<<<<<<< HEAD
+>>>>>>> b1d90bf7c04ff89801ab6a1c3c06d652fc80c972
 import { UserinfoComponent } from './home/userinfo/userinfo.component';
 import {NotFoundComponentComponent} from './not-found-component/not-found-component.component';
 @NgModule({
@@ -32,9 +38,9 @@ import {NotFoundComponentComponent} from './not-found-component/not-found-compon
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
