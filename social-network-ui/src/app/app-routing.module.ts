@@ -5,6 +5,7 @@ import { SigninComponent } from './home/signin/signin.component';
 import { SignupComponent } from './home/signup/signup.component';
 import { AddpostComponent } from './home/addpost/addpost.component';
 import { UserinfoComponent} from './home/userinfo/userinfo.component';
+import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 
 const routes: Routes = [
 {path:'',redirectTo:'home',pathMatch:'full'},
@@ -12,10 +13,8 @@ const routes: Routes = [
 {path:'signin',component:SigninComponent},
 {path:'signup',component:SignupComponent},
 {path:'addpost',component:AddpostComponent},
-<<<<<<< HEAD
-{path:'userinfo',component:UserinfoComponent}
-=======
->>>>>>> 4ac50134f40aa759401b9788878a11e3ec12e926
+{path:'userinfo',component:UserinfoComponent},
+
 ];
 
 @NgModule({
